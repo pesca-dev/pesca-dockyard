@@ -47,7 +47,7 @@ docker:build:image:
 
 docker:deploy:latest:
     only:
-        - master
+        - main
     stage: dev-release
     needs: ["build:production"]
     image:
@@ -62,7 +62,7 @@ docker:tag:latest:
     needs: ["docker:build:image"]
     image: docker:latest
     only:
-        - master
+        - main
     script:
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
         - docker pull $CONTAINER_TEST_IMAGE
