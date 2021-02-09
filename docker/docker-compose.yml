@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+    server:
+        build: ../
+        restart: always
+        ports:
+            - "12080:8080"
+        networks:
+            - pesca-dockyard-network
+
+networks:
+    pesca-dockyard-network:
+        name: pesca-dockyard-network
